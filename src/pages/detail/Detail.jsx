@@ -5,15 +5,15 @@ import './detail.css'
 const Detail = () => {
     const [detail, setDetail] = useState([])
     const [seeMore, setSeeMore] = useState(true)
+    const [movieId, setMovieId] = useState(866398)
     useEffect(() =>{
     const getFetch = async() => {
-
-        const resp = await axios.get("https://api.themoviedb.org/3/movie/866398?language=en-US&api_key=1f06982c9b50c78835d9370e1b4a9b83")
+        const resp = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=1f06982c9b50c78835d9370e1b4a9b83`)
             setDetail(resp.data)
     }
         getFetch()
     },[])
-
+    const imgUrl = `https://image.tmdb.org/t/p/w200${detail.poster_path}`
     const ranking = (Math.ceil(detail.vote_average*20)/20).toFixed(1)   // ranking
     const overviewFull = detail.overview
     let overview = detail.overview                                     //overview
@@ -35,7 +35,7 @@ const Detail = () => {
 
     return (
         <div>
-            <div id="detailImgBox">
+            <div id="detailImgBox" style={{backgroundImage: `url(${imgUrl})`}}>
             <button id='backArrow'><svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" viewBox="0 0 25 14" fill="none">
 <path d="M4.15882 6.858H22.1258M7.85782 11.7156L3 6.85782L7.85782 2" stroke="black" strokeWidth="4" strokeLinecap="round"/>
 </svg></button>

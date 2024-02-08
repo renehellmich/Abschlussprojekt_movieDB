@@ -3,13 +3,17 @@ import { useEffect, useRef, useState } from "react"
 import axios from "axios"
 const SearchBar = () => {
 
-    const searchInputRef = useRef()
 
-    // let searchInputRef = "the"
-    let apiKey = "1f06982c9b50c78835d9370e1b4a9b83"
-    let apiLinkSerachKeyword = `https://api.themoviedb.org/3/search/keyword?query=${searchInputRef}&page=1&api_key=`
+    // let searchInputRef = useRef()
 
-    console.log(searchInputRef);
+    let [searchInput, setSearchInput] = useState()
+
+    // searchInputRef = useRef()
+
+    const apiKey = "1f06982c9b50c78835d9370e1b4a9b83"
+    const apiLinkSerachKeyword = `https://api.themoviedb.org/3/search/keyword?query=${searchInput}&page=1&api_key=`
+
+    console.log(searchInput);
 
 
 
@@ -20,10 +24,12 @@ const SearchBar = () => {
 
         }
         apiFetch()
-    }, [])
+    }, [searchInput])
 
-    const movieSearch = () => {
-        console.log("searchInputRef", searchInputRef.current.value);
+
+    const movieSearch = (event) => {
+        const input = event.target.value
+        setSearchInput(input)
 
     }
 
@@ -31,21 +37,18 @@ const SearchBar = () => {
 
     return (
         <>
-
-
+            <input type="text" onChange={(e) => setSearchInput(e.target.value)} />
 
 
             <h1>hier is search bar</h1>
-
-            <div className=''>
+            {/* <div className=''>
                 <input
                     style={{ width: "100%" }}
                     type="text"
-                    ref={searchInputRef}
-                    onChange={movieSearch}
+                    onChange={movieSearch()}
                     placeholder={`search for a movie`}
                 />
-            </div>
+            </div> */}
         </>
     );
 }

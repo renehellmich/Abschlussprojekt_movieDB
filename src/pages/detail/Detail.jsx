@@ -12,8 +12,8 @@ const Detail = () => {
             setDetail(resp.data)
     }
         getFetch()
-    },[])
-    const imgUrl = `https://image.tmdb.org/t/p/w200${detail.poster_path}`
+    },[movieId])
+    const imgUrl = `https://image.tmdb.org/t/p/w342${detail.poster_path}`
     const ranking = (Math.ceil(detail.vote_average*20)/20).toFixed(1)   // ranking
     const overviewFull = detail.overview
     let overview = detail.overview                                     //overview
@@ -35,7 +35,7 @@ const Detail = () => {
 
     return (
         <div>
-            <div id="detailImgBox" style={{backgroundImage: `url(${imgUrl})`}}>
+            <div id="detailImgBox" style={{backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url(${imgUrl})`}}>
             <button id='backArrow'><svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" viewBox="0 0 25 14" fill="none">
 <path d="M4.15882 6.858H22.1258M7.85782 11.7156L3 6.85782L7.85782 2" stroke="black" strokeWidth="4" strokeLinecap="round"/>
 </svg></button>

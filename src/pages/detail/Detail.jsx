@@ -35,12 +35,14 @@ const Detail = () => {
 
     return (
         <div>
-            <button><svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" viewBox="0 0 25 14" fill="none">
+            <div id="detailImgBox">
+            <button id='backArrow'><svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" viewBox="0 0 25 14" fill="none">
 <path d="M4.15882 6.858H22.1258M7.85782 11.7156L3 6.85782L7.85782 2" stroke="black" strokeWidth="4" strokeLinecap="round"/>
 </svg></button>
-            <div id="detailImgBox">
-                <p>Movie Details</p>
-                <h1>{detail.original_title}</h1>
+                <div id='title'>
+                    <p>Movie Details</p>
+                    <h1>{detail.original_title}</h1>
+                </div>
             </div>
             <div id="detailCard">
                 <ul>
@@ -53,13 +55,13 @@ const Detail = () => {
                 </ul>
                 <div id="overview">
                     <h2>Overview</h2>
-                    {seeMore ? <p>{overview}<span><button onClick={() => setSeeMore(false)}>...see More</button></span></p> : <p>{overviewFull}</p>}
+                    {seeMore ? <p>{overview}<span onClick={() => setSeeMore(false)}>...see More</span></p> : <p>{overviewFull}</p>}
                 </div>
                 <div className="genre">
                     <p>Genres</p>
                     <p>{[genres]}</p>
                 </div>
-                <div className="genres">
+                <div className="genre">
                     <p>Lanuages</p>
                     <p>{[lanuages]}</p>
                 </div>

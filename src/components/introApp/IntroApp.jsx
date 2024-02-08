@@ -5,7 +5,7 @@ import './introApp.css'
 
 
 const IntroApp = () => {
-    
+
     const navigate = useNavigate()
     const goToHome = () => {
         navigate('/home')
@@ -22,7 +22,7 @@ const IntroApp = () => {
                         <h2>Enjoy Your Movie Watch Everywhere</h2>
                         <p>Stream unlimited movies and TV shows on your phone,tablet, laptop, and TV.</p>
                         <button
-                        onClick={goToHome}
+                            onClick={goToHome}
                         >Get started</button>
                     </div>
                 </section>

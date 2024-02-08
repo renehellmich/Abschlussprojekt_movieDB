@@ -5,7 +5,7 @@ import SplashScreen from '../../components/splashScreen/SplashScreen'
 const LandingPage = () => {
 
     const [mode, setMode] = useState(false)
-    
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setMode(true)
@@ -14,9 +14,9 @@ const LandingPage = () => {
     }, [])
     return (
         <>
-        {mode ? <IntroApp /> : <SplashScreen /> }
-    </>
-  )
+            {mode ? <IntroApp /> : <SplashScreen />}
+        </>
+    )
 }
 
 export default LandingPage

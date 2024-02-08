@@ -31,8 +31,8 @@ const Detail = () => {
         if (lanuages.length>0){lanuages.push(", ")}
         lanuages.push(e.english_name)})
 
-    const runtime = detail.runtime                                      //runtime
-    console.log("see", seeMore)
+    let hours = `${Math.ceil(detail.runtime/60)}h ${Math.ceil(detail.runtime%60)}min`       //runtime
+
     return (
         <div>
             <button><svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" viewBox="0 0 25 14" fill="none">
@@ -49,7 +49,7 @@ const Detail = () => {
 </svg> {ranking}</li>
                     <li>{detail.release_date}</li>
                     <li>{genres[0]}</li>
-                    <li>{runtime} min</li>
+                    <li>{hours}</li>
                 </ul>
                 <div id="overview">
                     <h2>Overview</h2>

@@ -1,8 +1,12 @@
 import React from 'react'
+import './splashscreen.css'
 
 const SplashScreen = () => {
   return (
-    <h1>.MOV</h1>
+    <body className='bodySplash'>
+        <h1>.MOV</h1>
+    </body>
+   
   )
 }
 

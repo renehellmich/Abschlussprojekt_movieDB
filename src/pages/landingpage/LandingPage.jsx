@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import IntroApp from '../../components/introApp/IntroApp'
+import SplashScreen from '../../components/splashScreen/SplashScreen'
 
 const LandingPage = () => {
-  return (
-    <>
-        <IntroApp />
+
+    const [mode, setMode] = useState(false)
+    
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setMode(true)
+        }, 3000);
+        return () => clearTimeout(timer)
+    }, [])
+    return (
+        <>
+        {mode ? <IntroApp /> : <SplashScreen /> }
     </>
   )
 }

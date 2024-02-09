@@ -39,8 +39,8 @@ const MainProvider = ({ children }) => {
     useEffect(() => {
         const getFetch = async () => {
             const resp = await axios.get(`${apiLink.details}&${apiKey}`)
-            const data = await resp
-            setDetail(resp.data)
+            const data = await resp.data.results
+            setDetail(data)
             console.log(resp)
 
         }

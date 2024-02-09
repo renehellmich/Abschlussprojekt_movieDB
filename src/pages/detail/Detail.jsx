@@ -1,24 +1,18 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './detail.css'
 import { useNavigate } from 'react-router-dom'
+import { mainContext } from '../../context/mainProvider'
 
 const Detail = () => {
-    const [detail, setDetail] = useState([])
+    const{detail, setDetail} = useContext(mainContext)
     const [seeMore, setSeeMore] = useState(true)
     const [movieId, setMovieId] = useState(866398)
 
     const navigate = useNavigate()                  //Navigations
     const goBack = () => {navigate('/home')}        //-back
     const goToTrailer = () => {navigate('/trailer')}//-trialer
-    
-    useEffect(() =>{
-    const getFetch = async() => {
-        const resp = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=1f06982c9b50c78835d9370e1b4a9b83`)
-            setDetail(resp.data)
-    }
-        getFetch()
-    },[movieId])
+
     const imgUrl = `https://image.tmdb.org/t/p/w342${detail.poster_path}`
     const ranking = (Math.ceil(detail.vote_average*20)/20).toFixed(1)   // ranking
     const overviewFull = detail.overview
@@ -40,7 +34,7 @@ const Detail = () => {
     let hours = `${Math.ceil(detail.runtime/60)}h ${Math.ceil(detail.runtime%60)}min`       //runtime
 
     return (
-        <div>
+        <div id='detail'>
             <div id="detailImgBox" style={{backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url(${imgUrl})`, backgroundRepeat: 'no-repeat',backgroundSize: 'cover'}}>
             <button id='backArrow' onClick={() => goBack()}><svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" viewBox="0 0 25 14" fill="none">
 <path d="M4.15882 6.858H22.1258M7.85782 11.7156L3 6.85782L7.85782 2" stroke="black" strokeWidth="4" strokeLinecap="round"/>

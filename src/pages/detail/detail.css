@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+#detail{
+    display: flex;
+    flex-direction: column;
+}
+
 body{
     background-color: white;
     color: black;
@@ -25,6 +30,10 @@ body{
     display: flex;
     flex-direction: column;}
 
+h1{
+    text-align: center;
+}
+
 ul{
     display: flex;
     justify-content: space-evenly;}
@@ -44,4 +53,5 @@ ul{
 
 #trailerButton{
     background-color: #FC2121;
+    align-self: center;
 }

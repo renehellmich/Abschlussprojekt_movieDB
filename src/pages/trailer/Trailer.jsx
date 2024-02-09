@@ -1,21 +1,26 @@
 import React, { useContext } from 'react'
 import Youtube from 'react-youtube'
 import { mainContext } from '../../context/mainProvider'
+import './trailer.css'
+import Nav from '../../components/nav/Nav'
 
 const Trailer = () => {
 
     const {trailer} = useContext(mainContext)
 
     const opts = {
-        height: window.screen.height,
-        width: window.screen.width,
+        height: window.innerHeight * 0.8,
+        width: window.innerWidth,
         playerVars: {
             autoplay: 1
         }
     }
 
   return (
-    <>
+    <>  
+        <header className='headerTrailer'>
+            <h1>Trailer</h1>
+        </header>
         <section className='scTrailer'>
             {   
                 trailer ? (
@@ -25,6 +30,7 @@ const Trailer = () => {
                 ) : null
             }
         </section>
+        <Nav />
     </>
   )
 }

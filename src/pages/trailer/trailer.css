@@ -1,0 +1,10 @@
+.headerTrailer {
+    height: 10vh;
+}
+
+.scTrailer div {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

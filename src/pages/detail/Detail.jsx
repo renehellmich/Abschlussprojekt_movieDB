@@ -10,15 +10,15 @@ const Detail = () => {
     const [movieId, setMovieId] = useState(866398)
 
     const navigate = useNavigate()                  //Navigations
-    const goBack = () => {navigate('/home')}        //-back
+    const goBack = () => {navigate('/home')}        //-back     //!ergänzen zu backPath
     const goToTrailer = () => {navigate('/trailer')}//-trialer
 
     const imgUrl = `https://image.tmdb.org/t/p/w342${detail.poster_path}`
     const ranking = (Math.ceil(detail.vote_average*20)/20).toFixed(1)   // ranking
     const overviewFull = detail.overview
     let overview = detail.overview                                     //overview
-    if (detail.overview?.length > 150){
-        overview = overview.slice(0,150)}
+    if (detail.overview?.length > 100){
+        overview = overview.slice(0,100)}
         // else{setSeeMore(false)}
 
     const genres = []                                                   //genres

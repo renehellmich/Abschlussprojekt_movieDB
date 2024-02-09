@@ -18,11 +18,9 @@ const MainProvider = ({ children }) => {
         images: `https://api.themoviedb.org/3/movie/${movieID}/images`,
         videos: `https://api.themoviedb.org/3/movie/${movieID}/videos?language=en-US`
     })
-    console.log(`${apiLink.details}&${apiKey}`)
+
     if (movieID != 1212073) {
         setMovieID(1212073)
-        console.log("check")
-        console.log(movieID)
     }
 
     useEffect(() => {
@@ -40,7 +38,6 @@ const MainProvider = ({ children }) => {
             const resp = await axios.get(`${apiLink.details}&${apiKey}`)
             const data = await resp
             setDetail(resp.data)
-            console.log(resp)
 
         }
         movieID ? getFetch() : null

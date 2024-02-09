@@ -22,7 +22,7 @@ const SearchBar = () => {
             const result = await axios.get(`${movieSearch}&${apiKey}`)
             setSearchedMovies(result.data.results)
             // console.log("s", result.data);
-            // console.log("searchedMovies", searchedMovies);
+            console.log("searchedMovies", searchedMovies);
         }
         apiFetch()
     }, [searchInput])

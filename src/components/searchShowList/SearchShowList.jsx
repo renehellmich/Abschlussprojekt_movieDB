@@ -1,10 +1,19 @@
 import "./searchShowList.css"
+
+
+
 const SearchShowList = ({ movie }) => {
+
+
+
+
+
+
     return (<>
 
 
         <div className="containerFoto">
-            <img src="" alt={movie.title}></img>
+            <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title}></img>
         </div>
         <div className="containerInfo">
             <div className="movieTitle">

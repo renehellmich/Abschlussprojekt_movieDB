@@ -1,13 +1,18 @@
+import { useContext } from "react";
 import "./searchShowList.css"
 import { useNavigate } from "react-router-dom";
+import { mainContext } from "../../context/mainProvider";
 
 
 
 const SearchShowList = ({ movie }) => {
 
     const navigate = useNavigate()
+    const {setMovieID} = useContext(mainContext)
 
     const goToDetails = () => {
+        setMovieID(movie.id)
+        console.log(movie.id);
         navigate(`/detail/${movie.id}`)
     }
 

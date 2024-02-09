@@ -20,9 +20,9 @@ const MainProvider = ({ children }) => {
         videos: `https://api.themoviedb.org/3/movie/${movieID}/videos?language=en-US`
     })
 
-    if (movieID != 1212073) {
-        setMovieID(1212073)
-    }
+    // if (movieID != 1212073) {
+    //     setMovieID(1212073)
+    // }
 
     useEffect(() => {
         movieID ? (

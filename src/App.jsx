@@ -3,9 +3,7 @@ import './App.css'
 import LandingPage from './pages/landingpage/LandingPage'
 import Detail from './pages/detail/Detail'
 import Trailer from './pages/trailer/trailer'
-import Nav from './components/nav/Nav'
 import Home from './pages/home/Home'
-
 
 function App() {
 

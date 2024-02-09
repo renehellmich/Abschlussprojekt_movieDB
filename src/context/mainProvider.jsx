@@ -18,22 +18,23 @@ const MainProvider = ({ children }) => {
         images: `https://api.themoviedb.org/3/movie/${movieID}/images`,
         videos: `https://api.themoviedb.org/3/movie/${movieID}/videos?language=en-US`
     })
-    console.log(`${apiLink.details}&${apiKey}`)
+
     if (movieID != 866398){
         setMovieID(866398)
         console.log("check")
+        console.log(movieID)
     }
     
     useEffect(() =>{
         const getFetch = async() => {
-            if(movieID) {const resp = await axios.get(`${apiLink.details}&${apiKey}`)
+            const resp = await axios.get(`${apiLink.details}&${apiKey}`)
             setDetail(resp.data)
-            console.log(resp)}
+            console.log(resp)
             
         }
-            getFetch()
+            if (movieID)
         },[movieID])
-
+        console.log(`${apiLink.details}&${apiKey}`)
     return (
         <>
             <mainContext.Provider

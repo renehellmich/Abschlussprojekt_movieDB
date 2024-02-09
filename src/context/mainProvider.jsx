@@ -6,7 +6,7 @@ export const mainContext = createContext()
 const MainProvider = ({ children }) => {
 
     const [apiKey] = useState('api_key=1f06982c9b50c78835d9370e1b4a9b83')
-
+    const [backPath, setBackPath] = useState('')
     const [movieID, setMovieID] = useState(0)
     const [detail, setDetail] = useState([])
     const [trailer, setTrailer] = useState([])
@@ -60,7 +60,7 @@ const MainProvider = ({ children }) => {
     return (
         <>
             <mainContext.Provider
-                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer }}
+                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer ,backPath, setBackPath}}
             >
                 {children}
             </mainContext.Provider>

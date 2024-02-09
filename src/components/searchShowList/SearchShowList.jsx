@@ -8,11 +8,11 @@ import { mainContext } from "../../context/mainProvider";
 const SearchShowList = ({ movie }) => {
 
     const navigate = useNavigate()
-    const {setMovieID} = useContext(mainContext)
+    const {setMovieID,setBackPath} = useContext(mainContext)
 
     const goToDetails = () => {
         setMovieID(movie.id)
-        console.log(movie.id);
+        setBackPath('/home')
         navigate(`/detail/${movie.id}`)
     }
 

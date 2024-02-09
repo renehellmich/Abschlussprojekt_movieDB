@@ -7,16 +7,12 @@ import { mainContext } from '../../context/mainProvider'
 
 const Detail = () => {
 
-
-
     const { id } = useParams() //diese zeile muss bleiben
-    const{detail, setDetail} = useContext(mainContext)
+    const{detail, setDetail, backPath} = useContext(mainContext)
     const [seeMore, setSeeMore] = useState(true)
-    const [movieId, setMovieId] = useState(id) //diese zeile muss bleiben
-
 
     const navigate = useNavigate()                  //Navigations
-    const goBack = () => {navigate('/home')}        //-back     //!ergänzen zu backPath
+    const goBack = () => {navigate(`${backPath}`)}        //-back     //!ergänzen zu backPath
     const goToTrailer = () => {navigate('/trailer')}//-trialer
 
     const imgUrl = `https://image.tmdb.org/t/p/w342${detail.poster_path}`

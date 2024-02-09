@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;}
+
+#detailImgBox{
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    justify-content: space-between;}
+
+#backArrow{
+    align-self: flex-start;
+    justify-self: start;
+    background-color: white;}
+
+#title{
+    display: flex;
+    flex-direction: column;}
+
+ul{
+    display: flex;
+    justify-content: space-evenly;}
+
+#overview{
+    display: flex;
+    flex-direction: column;
+    text-align: start;}
+
+#overview span{
+    color: red}
+
+
+.genre{
+    display: flex;
+    justify-content: space-between;}
+
+#trailerButton{
+    background-color: #FC2121;
+}

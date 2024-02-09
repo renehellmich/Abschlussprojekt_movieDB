@@ -1,6 +1,8 @@
 .movieCard {
-    width: 80%;
-    display: flex;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* Adaugă două coloane de 50px fiecare */
     align-items: center;
     justify-content: center;
     padding: 1rem;
@@ -10,15 +12,43 @@
 .containerInfo {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    padding: 1rem;
+
 }
 
 .movieInfos {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 1rem;
-    padding: 1rem;
+
+}
+
+img {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 7 / 10;
+    border-radius: .5rem;
+}
+
+.movieTitle {
+    color: var(--color-black);
+    font-family: Poppins;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.movieInfos p {
+    color: var(--color-black);
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

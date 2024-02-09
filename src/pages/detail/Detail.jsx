@@ -1,12 +1,17 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './detail.css'
+import { useNavigate } from 'react-router-dom'
 
 const Detail = () => {
     const [detail, setDetail] = useState([])
     const [seeMore, setSeeMore] = useState(true)
     const [movieId, setMovieId] = useState(866398)
 
+    const navigate = useNavigate()                  //Navigations
+    const goBack = () => {navigate('/home')}        //-back
+    const goToTrailer = () => {navigate('/trailer')}//-trialer
+    
     useEffect(() =>{
     const getFetch = async() => {
         const resp = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=1f06982c9b50c78835d9370e1b4a9b83`)
@@ -37,7 +42,7 @@ const Detail = () => {
     return (
         <div>
             <div id="detailImgBox" style={{backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url(${imgUrl})`, backgroundRepeat: 'no-repeat',backgroundSize: 'cover'}}>
-            <button id='backArrow'><svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" viewBox="0 0 25 14" fill="none">
+            <button id='backArrow' onClick={() => goBack()}><svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" viewBox="0 0 25 14" fill="none">
 <path d="M4.15882 6.858H22.1258M7.85782 11.7156L3 6.85782L7.85782 2" stroke="black" strokeWidth="4" strokeLinecap="round"/>
 </svg></button>
                 <div id='title'>
@@ -67,7 +72,7 @@ const Detail = () => {
                     <p>{[lanuages]}</p>
                 </div>
             </div>
-            <button id='trailerButton'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+            <button id='trailerButton' onClick={() => goToTrailer()}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
   <path d="M13.558 5.90848C14.011 6.17266 14.3868 6.55096 14.648 7.00566C14.9092 7.46037 15.0467 7.9756 15.0467 8.49998C15.0467 9.02437 14.9092 9.5396 14.648 9.99431C14.3868 10.449 14.011 10.8273 13.558 11.0915L4.512 16.3685C4.05609 16.6345 3.53804 16.7756 3.01019 16.7774C2.48233 16.7791 1.96334 16.6416 1.50563 16.3787C1.04792 16.1158 0.667686 15.7367 0.403328 15.2798C0.13897 14.8229 -0.000154495 14.3043 1.90735e-06 13.7765V3.22248C2.09808e-05 2.69471 0.139275 2.17628 0.403704 1.71952C0.668133 1.26276 1.04838 0.883852 1.50606 0.62103C1.96374 0.358207 2.48266 0.220778 3.01044 0.222613C3.53821 0.224449 4.05616 0.365485 4.512 0.631484L13.558 5.90848Z" fill="white"/>
 </svg> Watch Trailer</button>
         </div>

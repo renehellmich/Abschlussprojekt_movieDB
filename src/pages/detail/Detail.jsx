@@ -1,29 +1,27 @@
-import axios from 'axios'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './detail.css'
-import { useParams } from 'react-router-dom' //diese zeile muss bleiben
-import { useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { mainContext } from '../../context/mainProvider'
 import Nav from '../../components/nav/Nav'
 
 const Detail = () => {
 
-    const { id } = useParams() //diese zeile muss bleiben
+    const { id } = useParams()
     const{detail, setDetail, backPath} = useContext(mainContext)
     const [seeMore, setSeeMore] = useState(true)
 
-    const navigate = useNavigate()                  //Navigations
-    const goBack = () => {navigate(`${backPath}`)}        //-back   
-    const goToTrailer = () => {navigate('/trailer')}//-trialer
+    const navigate = useNavigate()                                      //Navigations
+    const goBack = () => {navigate(`${backPath}`)}                      //-back   
+    const goToTrailer = () => {navigate('/trailer')}                    //-trialer
 
-    const imgUrl = `https://image.tmdb.org/t/p/w342${detail.poster_path}`
-    const ranking = (Math.ceil(detail.vote_average * 20) / 20).toFixed(1)   // ranking
+    const imgUrl = `https://image.tmdb.org/t/p/w342${detail.poster_path}`//IMG URL
+
+    const ranking = (Math.ceil(detail.vote_average * 20) / 20).toFixed(1)// ranking
+
     const overviewFull = detail.overview
-    let overview = detail.overview                                     //overview
-    if (detail.overview?.length > 150){
-        overview = overview.slice(0,150)}
-        // else{setSeeMore(false)}
-    console.log(detail)
+
+    const overview = detail.overview.slice(0,100)                       //overview
+
     const genres = []                                                   //genres
     detail?.genres?.map((e) => {
         if (genres.length > 0) { genres.push(", ") }
@@ -41,7 +39,7 @@ const Detail = () => {
         if (prodComp.length > 0) { prodComp.push(", ") }
         prodComp.push(e.name)
     })
-console.log(prodComp)
+
     const prodCountry = []                                              //production Countries
     detail?.production_countries?.map((e) =>{
         if (prodCountry.length > 0) { prodCountry.push(", ") }
@@ -79,7 +77,7 @@ console.log(prodComp)
                     {seeMore ? <p>{overview}<span onClick={() => setSeeMore(false)}>...see More</span></p> 
                     : <div>
                         <p>{overviewFull}</p>
-
+                        
                         <div className="genre">
                             <p>Original title</p>
                             <p>{detail.original_title}</p>
@@ -132,7 +130,6 @@ console.log(prodComp)
 </svg> Watch Trailer</button>
         <Nav/>
         </div>
-
     )
 }
 

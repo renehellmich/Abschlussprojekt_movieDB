@@ -9,8 +9,6 @@ input {
     font-weight: 300;
     width: 100%;
     height: 3rem;
-    /* width: 373px;
-    height: 62px; */
     flex-shrink: 0;
     background-color: #FBF8FF;
     fill: #FBF8FF;
@@ -23,6 +21,7 @@ input[type="text"],
 input[type="placeholder"] {
     color: #A4A3A3;
     font-family: Poppins;
+    font-weight: 300;
     font-size: 1.2rem;
     padding: .3rem .9rem;
 }

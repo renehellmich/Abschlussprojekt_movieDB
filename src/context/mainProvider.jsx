@@ -19,10 +19,9 @@ const MainProvider = ({ children }) => {
         images: `https://api.themoviedb.org/3/movie/${movieID}/images`,
         videos: `https://api.themoviedb.org/3/movie/${movieID}/videos?language=en-US`
     })
-    console.log(`${apiLink.details}&${apiKey}`)
+
     if (movieID != 1212073) {
         setMovieID(1212073)
-        console.log("check")
     }
 
     useEffect(() => {

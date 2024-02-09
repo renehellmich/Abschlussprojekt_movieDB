@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--color-red);
+    background: red;
     height: 100vh;
     animation: loading 1s linear 2s 1 forwards;
 }

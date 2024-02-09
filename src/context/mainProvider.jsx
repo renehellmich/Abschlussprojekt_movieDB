@@ -9,7 +9,7 @@ const MainProvider = ({ children }) => {
 
     const [movieID, setMovieID] = useState(0)
     const [detail, setDetail] = useState([])
-    const [apiLink] = useState({
+    const [apiLink, setApiLink] = useState({
         now: 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1',
         popular: 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
         topRated: 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
@@ -19,25 +19,36 @@ const MainProvider = ({ children }) => {
         videos: `https://api.themoviedb.org/3/movie/${movieID}/videos?language=en-US`
     })
     console.log(`${apiLink.details}&${apiKey}`)
-    if (movieID != 866398){
-        setMovieID(866398)
+    if (movieID != 1212073) {
+        setMovieID(1212073)
         console.log("check")
     }
-    
-    useEffect(() =>{
-        const getFetch = async() => {
-            if(movieID) {const resp = await axios.get(`${apiLink.details}&${apiKey}`)
+
+    useEffect(() => {
+        movieID ? (
+            setApiLink((prevState) => ({
+                ...prevState,
+                details: `https://api.themoviedb.org/3/movie/${movieID}?language=en-US`
+            }))
+        ) : null;
+
+    }, [movieID])
+
+    useEffect(() => {
+        const getFetch = async () => {
+            const resp = await axios.get(`${apiLink.details}&${apiKey}`)
+            const data = await resp
             setDetail(resp.data)
-            console.log(resp)}
-            
+            console.log(resp)
+
         }
-            getFetch()
-        },[movieID])
+        movieID ? getFetch() : null
+    }, [apiLink.details])
 
     return (
         <>
             <mainContext.Provider
-                value={{ apiKey, apiLink, movieID, setMovieID ,detail, setDetail}}
+                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail }}
             >
                 {children}
             </mainContext.Provider>

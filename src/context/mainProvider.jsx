@@ -10,6 +10,7 @@ const MainProvider = ({ children }) => {
     const [movieID, setMovieID] = useState(0)
     const [detail, setDetail] = useState([])
     const [trailer, setTrailer] = useState([])
+    const [genre, setGenre] = useState([])
     const [apiLink, setApiLink] = useState({
         now: 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1',
         popular: 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
@@ -50,17 +51,30 @@ const MainProvider = ({ children }) => {
         const getFetch = async () => {
             const resp = await axios.get(`${apiLink.videos}&${apiKey}`)
             const data = await resp.data.results
-            setTrailer(data)
+            setGenre(data)
             console.log(data)
 
         }
         apiLink.videos ? getFetch() : null
     }, [apiLink.videos])
 
+
+    // useEffect(() => {
+    //     const getFetch = async () => {
+    //         const resp = await axios.get(`${apiLink.topRated}&${apiKey}`)
+    //         const data = await resp.data.results
+    //         setTrailer(data)
+    //         console.log(data)
+
+    //     }
+    //     getFetch()
+    // }, [])
+
+
     return (
         <>
             <mainContext.Provider
-                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer }}
+                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer, genre, setGenre }}
             >
                 {children}
             </mainContext.Provider>

@@ -110,18 +110,25 @@ const MainProvider = ({ children }) => {
 
     const [storageMovie, setStorageMovie] = useState(() => {
         const storedMovie = JSON.parse(localStorage.getItem('storageMovie'));
-        return storedMovie ? storedMovie : null;
-    })
+        if (storedMovie && Array.isArray(storedMovie)) {
+            
+            return storedMovie.filter(item => typeof item === 'object');
+        }
+        return []
+    });
 
     useEffect(() => {
         localStorage.setItem('storageMovie', JSON.stringify(storageMovie));
-    }, storageMovie)
+        console.log(JSON.parse(localStorage.getItem('storageMovie')));
+    }, [storageMovie]);
+
+
 
 
     return (
         <>
             <mainContext.Provider
-                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer,backPath, setBackPath, genre, setGenre, storageMovie, setStorageMovie, searchedOrFilteredMovies, setSearchedOrFilteredMovies, searchInput, setSearchInput }}
+                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer, backPath, setBackPath, genre, setGenre, storageMovie, setStorageMovie, searchedOrFilteredMovies, setSearchedOrFilteredMovies, searchInput, setSearchInput }}
             >
                 {children}
             </mainContext.Provider>

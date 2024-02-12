@@ -38,7 +38,7 @@ const SearchBar = () => {
         const getFetch = async () => {
             const result = await axios.get(`${movieSearch}&${apiKey}`)
             // const result = await axios.get(`${apiLink.search} & ${apiKey}`)
-            setSearchedOrFilteredMovies(result?.data.results)
+            setSearchedOrFilteredMovies(result?.data?.results)
         }
         getFetch()
     }, [searchInput])
@@ -49,7 +49,7 @@ const SearchBar = () => {
     useEffect(() => {
         const getFetch = async () => {
             const result = await axios.get(`${apiLink.popular}&${apiKey}`)
-            setGenre(result?.data.results)
+            setGenre(result?.data?.results)
             // setSearchedOrFilteredMovies(result?.data.results)
             console.log(result.data.results);
         }
@@ -72,7 +72,7 @@ const SearchBar = () => {
         }
         else {
             const sortedMovies = [...searchedOrFilteredMovies]?.filter((movie) => {
-                return movie?.genre_ids.includes(28)
+                return movie?.genre_ids?.includes(28)
             })
             console.log("sortedMovies", sortedMovies);
             setSearchedOrFilteredMovies(sortedMovies)
@@ -84,14 +84,14 @@ const SearchBar = () => {
     const filterNachComedy = () => {
         if (searchInput == "") {
             const sortedMovies = [...genre]?.filter((movie) => {
-                return movie?.genre_ids.includes(35)
+                return movie?.genre_ids?.includes(35)
             })
             console.log("sortedMovies", sortedMovies);
             setSearchedOrFilteredMovies(sortedMovies)
         }
         else {
             const sortedMovies = [...searchedOrFilteredMovies]?.filter((movie) => {
-                return movie?.genre_ids.includes(35)
+                return movie?.genre_ids?.includes(35)
             })
             console.log("sortedMovies", sortedMovies);
             setSearchedOrFilteredMovies(sortedMovies)
@@ -103,7 +103,7 @@ const SearchBar = () => {
     const filterNachHorror = () => {
         if (searchInput == "") {// setNowFetch(true)
             const sortedMovies = [...genre]?.filter((movie) => {
-                return movie?.genre_ids.includes(27)
+                return movie?.genre_ids?.includes(27)
             })
             console.log("sortedMovies", sortedMovies);
             setSearchedOrFilteredMovies(sortedMovies)
@@ -111,7 +111,7 @@ const SearchBar = () => {
         else {
 
             const sortedMovies = [...searchedOrFilteredMovies]?.filter((movie) => {
-                return movie?.genre_ids.includes(27)
+                return movie?.genre_ids?.includes(27)
             })
             console.log("sortedMovies", sortedMovies);
             setSearchedOrFilteredMovies(sortedMovies)

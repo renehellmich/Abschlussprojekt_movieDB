@@ -11,7 +11,7 @@ const Detail = () => {
     const [seeMore, setSeeMore] = useState(true)
 
     const navigate = useNavigate()                                      //Navigations
-    const goBack = () => {navigate(`${backPath}`)}                      //-back   
+    const goBack = () => {navigate(-1)}                      //-back   
     const goToTrailer = () => {navigate('/trailer')}                    //-trialer
 
     const imgUrl = `https://image.tmdb.org/t/p/w342${detail.poster_path}`//IMG URL

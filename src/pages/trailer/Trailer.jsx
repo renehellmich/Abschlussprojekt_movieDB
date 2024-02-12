@@ -16,6 +16,8 @@ const Trailer = () => {
         }
     }
 
+    trailer ? console.log(trailer[0]) : null;
+
   return (
     <>  
         <header className='headerTrailer'>

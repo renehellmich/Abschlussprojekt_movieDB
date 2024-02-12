@@ -51,7 +51,7 @@ const MainProvider = ({ children }) => {
         const getFetch = async () => {
             const resp = await axios.get(`${apiLink.videos}&${apiKey}`)
             const data = await resp.data.results
-            setGenre(data)
+            setTrailer(data)
             console.log(data)
 
         }

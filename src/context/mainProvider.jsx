@@ -7,6 +7,7 @@ const MainProvider = ({ children }) => {
 
     const [apiKey] = useState('api_key=1f06982c9b50c78835d9370e1b4a9b83')
 
+    // const [seeMostPopularMovies, setSeeMostPopularMovies] = useState([])
     const [movieID, setMovieID] = useState(0)
     const [detail, setDetail] = useState([])
     const [trailer, setTrailer] = useState([])
@@ -23,6 +24,20 @@ const MainProvider = ({ children }) => {
     // if (movieID != 1212073) {
     //     setMovieID(1212073)
     // }
+
+    // useEffect(() => {
+    //     const apiFetch = async () => {
+    //         try {
+    //             const resp = await axios.get(`${apiLink.popular}&${apiKey}`);
+    //             setSeeMostPopularMovies(resp.data.results);
+    //             console.log(resp);
+    //         } catch (error) {
+    //             console.error('Error:', error);
+    //         }
+    //     };
+
+    //     apiFetch();
+    // }, [apiLink.popular]);
 
     useEffect(() => {
         movieID ? (
@@ -60,7 +75,7 @@ const MainProvider = ({ children }) => {
     return (
         <>
             <mainContext.Provider
-                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer }}
+                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer, }}
             >
                 {children}
             </mainContext.Provider>

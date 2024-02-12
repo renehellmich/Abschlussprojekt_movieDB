@@ -82,7 +82,28 @@ const MainProvider = ({ children }) => {
 
 
 
+    // hier ist fetch für searchbar
+    useEffect(() => {
+        const getFetch = async () => {
+            const result = await axios.get(`${movieSearch}&${apiKey}`)
+            // const result = await axios.get(`${apiLink.search} & ${apiKey}`)
+            setSearchedOrFilteredMovies(result?.data?.results)
+        }
+        getFetch()
+    }, [searchInput])
 
+
+    // hier ist fetch für genre
+    useEffect(() => {
+        const getFetch = async () => {
+            const result = await axios.get(`${apiLink.popular}&${apiKey}`)
+            setGenre(result?.data?.results)
+            // setSearchedOrFilteredMovies(result?.data.results)
+            console.log(result.data.results);
+        }
+        // nowfetch ? getFetch() : null
+        getFetch()
+    }, [])
 
 
 

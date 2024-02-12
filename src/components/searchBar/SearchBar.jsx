@@ -12,32 +12,32 @@ import ImageSlider from "../carusel/ImageSlider"
 const SearchBar = () => {
 
     //  hier wollte ich das in mainProvider importieren aber funktiniert nicht gut
-    // const { searchInput, setSearchInput, searchedOrFilteredMovies, setSearchedOrFilteredMovies, genre, setGenre } = useContext(mainContext)
+    const { searchInput, setSearchInput, searchedOrFilteredMovies, setSearchedOrFilteredMovies, genre, setGenre } = useContext(mainContext)
 
 
 
-    let [searchInput, setSearchInput] = useState("")
-    let [searchedOrFilteredMovies, setSearchedOrFilteredMovies] = useState()
-    const [genre, setGenre] = useState([])
+    // let [searchInput, setSearchInput] = useState("")
+    // let [searchedOrFilteredMovies, setSearchedOrFilteredMovies] = useState()
+    // const [genre, setGenre] = useState([])
 
 
 
-    const apiKey = 'api_key=1f06982c9b50c78835d9370e1b4a9b83'
-    const movieSearch = `https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`
+    // const apiKey = 'api_key=1f06982c9b50c78835d9370e1b4a9b83'
+    // const movieSearch = `https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`
 
 
 
-    const [movieID, setMovieID] = useState(0)
-    const [apiLink, setApiLink] = useState({
-        now: 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1',
-        popular: 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
-        topRated: 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
-        upcoming: 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1',
-        details: `https://api.themoviedb.org/3/movie/${movieID}?language=en-US`,
-        images: `https://api.themoviedb.org/3/movie/${movieID}/images`,
-        videos: `https://api.themoviedb.org/3/movie/${movieID}/videos?language=en-US`,
-        search: `https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`
-    })
+    // const [movieID, setMovieID] = useState(0)
+    // const [apiLink, setApiLink] = useState({
+    //     now: 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1',
+    //     popular: 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
+    //     topRated: 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
+    //     upcoming: 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1',
+    //     details: `https://api.themoviedb.org/3/movie/${movieID}?language=en-US`,
+    //     images: `https://api.themoviedb.org/3/movie/${movieID}/images`,
+    //     videos: `https://api.themoviedb.org/3/movie/${movieID}/videos?language=en-US`,
+    //     search: `https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`
+    // })
 
 
     // aici fac sa mearga search barul in alta pagina

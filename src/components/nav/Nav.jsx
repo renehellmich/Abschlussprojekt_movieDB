@@ -10,30 +10,31 @@ import { HiHome } from "react-icons/hi2";
 
 const Nav = () => {
 
-   const navigate = useNavigate()
-   
-    const goToHome = () => {
-        navigate('/home')
-    }
+  const navigate = useNavigate()
 
-    return ( 
-        <>
-       
-        <nav className="navbar navbar-expand navbar-light bg-light">
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  const goToHome = () => {
+    navigate('/home')
+    window.location.reload();
+  }
+
+  return (
+    <>
+
+      <nav className="navbar navbar-expand navbar-light bg-light">
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
-          </button>
+        </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <button className="nav-item nav-link active" onClick={goToHome}><HiHome /></button>
             <a className="nav-item nav-link" href="#"><HiOutlineBookmark /></a>
             <a className="nav-item nav-link" href="#"><HiInboxArrowDown /></a>
             <a className="nav-item nav-link disabled" href="#"><VscAccount /></a>
-            </div>
           </div>
-        </nav>
-        </>
-     );
+        </div>
+      </nav>
+    </>
+  );
 }
- 
+
 export default Nav;

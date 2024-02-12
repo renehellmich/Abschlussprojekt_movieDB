@@ -4,8 +4,15 @@ import axios from "axios"
 import SearchShowList from "../searchShowList/SearchShowList"
 import Genre from "../genre/Genre"
 import { Link } from "react-router-dom"
+import { mainContext } from '../../context/mainProvider'
+import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
+import ImageSlider from "../carusel/ImageSlider"
 
 const SearchBar = () => {
+
+    //  hier wollte ich das in mainProvider importieren aber funktiniert nicht gut
+    // const { searchInput, setSearchInput, searchedOrFilteredMovies, setSearchedOrFilteredMovies, genre, setGenre } = useContext(mainContext)
 
 
 
@@ -33,6 +40,25 @@ const SearchBar = () => {
     })
 
 
+    // aici fac sa mearga search barul in alta pagina
+    const navigate = useNavigate(); // Pasul 2: Inițializează useNavigate
+
+    // Funcție care se declanșează la schimbarea inputului
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setSearchInput(value);
+
+        // Pasul 3: Navighează la /search când utilizatorul începe să scrie
+        // Poți să adaugi condiții suplimentare dacă este necesar
+        if (value.trim().length > 0) {
+            navigate(`/search?query=${encodeURIComponent(value)}`);
+        }
+    }
+    // end cu searach bar
+
+
+
+
 
     // hier ist fetch für searchbar
     useEffect(() => {
@@ -43,7 +69,6 @@ const SearchBar = () => {
         }
         getFetch()
     }, [searchInput])
-
 
 
     // hier ist fetch für genre
@@ -63,13 +88,13 @@ const SearchBar = () => {
 
     // onclick function for filter nach action
     const filterNachAction = () => {
-
         if (searchInput == "") {
             const sortedMovies = [...genre]?.filter((movie) => {
                 return movie?.genre_ids?.includes(28)
             })
             console.log("sortedMovies", sortedMovies);
             setSearchedOrFilteredMovies(sortedMovies)
+            setShowSlider(false)
         }
         else {
             const sortedMovies = [...searchedOrFilteredMovies]?.filter((movie) => {
@@ -89,6 +114,7 @@ const SearchBar = () => {
             })
             console.log("sortedMovies", sortedMovies);
             setSearchedOrFilteredMovies(sortedMovies)
+            setShowSlider(false)
         }
         else {
             const sortedMovies = [...searchedOrFilteredMovies]?.filter((movie) => {
@@ -96,23 +122,24 @@ const SearchBar = () => {
             })
             console.log("sortedMovies", sortedMovies);
             setSearchedOrFilteredMovies(sortedMovies)
+            setShowSlider(false)
         }
 
     }
 
     // onclick function for filter nach horror
-    const filterNachHorror = () => {
+    const filterNachFantasy = () => {
         if (searchInput == "") {// setNowFetch(true)
             const sortedMovies = [...genre]?.filter((movie) => {
-                return movie?.genre_ids?.includes(27)
+                return movie?.genre_ids?.includes(14)
             })
             console.log("sortedMovies", sortedMovies);
             setSearchedOrFilteredMovies(sortedMovies)
+            setShowSlider(false)
         }
         else {
-
             const sortedMovies = [...searchedOrFilteredMovies]?.filter((movie) => {
-                return movie?.genre_ids?.includes(27)
+                return movie?.genre_ids?.includes(14)
             })
             console.log("sortedMovies", sortedMovies);
             setSearchedOrFilteredMovies(sortedMovies)
@@ -120,35 +147,55 @@ const SearchBar = () => {
     }
 
 
+    // show more movies link
     const showMoreMovies = () => {
         if (searchInput == "") {
             setSearchedOrFilteredMovies(genre)
-
-        }
-        else {
-
-            const sortedMovies = [...searchedOrFilteredMovies]?.filter((movie) => {
-                return movie?.genre_ids?.includes(27)
-            })
-            console.log("sortedMovies", sortedMovies);
-            setSearchedOrFilteredMovies(sortedMovies)
+            setShowSlider(false)
         }
     }
+
+    // toogle hides or shows the carousel or welcome text
+    const [showSlider, setShowSlider] = useState(true)
+
+    const toogleSlider = () => {
+        setShowSlider(!showSlider)
+    }
+
 
 
     return (
         <>
+            {/* WELKOME TEXT show und hide */}
+            {showSlider && <h1>Welcome</h1>}
+
             {/* search input  */}
             <form className="seachBar">
-                <input type="text" onChange={(e) => setSearchInput(e.target.value)} placeholder="Search Movie ..." />
+                <input type="text" onChange={(e) => setSearchInput(e.target.value) & setShowSlider(false)} placeholder="Search Movie ..." />
             </form>
+
+            {/* genre BUTTONS */}
             <div className="genreButtons">
                 <button onClick={filterNachAction}>Action</button>
                 <button onClick={filterNachComedy}>Comedy</button>
-                <button onClick={filterNachHorror}>Horror</button>
-                <button onClick={showMoreMovies}>test</button>
-
+                <button onClick={filterNachFantasy}>Fantasy</button>
             </div>
+
+            {/* show und hide the Carousel Header*/}
+            {showSlider &&
+                <div className="movieHeader">
+                    <h2 >Trending movies</h2>
+                    <p onClick={showMoreMovies}>See all</p>
+                </div>
+            }
+
+            {/* show und hide the Carousel/ImageSlider*/}
+            {showSlider &&
+                <div className="imageSlider">
+                    <ImageSlider />
+                </div>
+            }
+
             {/* show search results */}
             {
                 searchedOrFilteredMovies === "" ? null : searchedOrFilteredMovies ?

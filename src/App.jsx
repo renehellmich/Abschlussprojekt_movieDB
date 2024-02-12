@@ -5,6 +5,7 @@ import Detail from './pages/detail/Detail'
 // import Trailer from './pages/trailer/trailer'
 import Home from './pages/home/Home'
 import Trailer from './pages/trailer/Trailer'
+import Storage from './pages/storage/Storage'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/detail/:id' element={<Detail />} />
         <Route path='/home' element={<Home />} />
         <Route path='/trailer' element={<Trailer />} />
+        <Route path='/storage' element={<Storage />} />
       </Routes>
     </>
   )

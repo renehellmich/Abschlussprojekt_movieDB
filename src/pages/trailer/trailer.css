@@ -1,9 +1,22 @@
 .headerTrailer {
-    height: 10vh;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#trailerGoBack {
+    height: 52px;
+    align-self: flex-start;
+    background: white;
+}
+
+.headerTrailer h1 {
+    align-self: start;
 }
 
 .scTrailer div {
-    
+
     display: flex;
     justify-content: center;
     align-items: center;

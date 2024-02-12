@@ -15,6 +15,9 @@ const Nav = () => {
     const goToHome = () => {
         navigate('/home')
     }
+    const goToStorage = () => {
+      navigate('/storage')
+    }
 
     return ( 
         <>
@@ -26,7 +29,7 @@ const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <button className="nav-item nav-link active" onClick={goToHome}><HiHome /></button>
-            <a className="nav-item nav-link" href="#"><HiOutlineBookmark /></a>
+            <a className="nav-item nav-link" href="#" onClick={goToStorage}><HiOutlineBookmark /></a>
             <a className="nav-item nav-link" href="#"><HiInboxArrowDown /></a>
             <a className="nav-item nav-link disabled" href="#"><VscAccount /></a>
             </div>

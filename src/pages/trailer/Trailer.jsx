@@ -3,10 +3,14 @@ import Youtube from 'react-youtube'
 import { mainContext } from '../../context/mainProvider'
 import './trailer.css'
 import Nav from '../../components/nav/Nav'
+import { useNavigate } from 'react-router-dom'
+// import Detail from '../detail/Detail'
 
 const Trailer = () => {
 
-    const {trailer} = useContext(mainContext)
+    const { trailer, detail } = useContext(mainContext)
+
+    const navigate = useNavigate()
 
     const opts = {
         height: window.innerHeight * 0.8,
@@ -16,25 +20,35 @@ const Trailer = () => {
         }
     }
 
-    trailer ? console.log(trailer[0]) : null;
+    const goBack = () => {
+        navigate(-1)
+    }
 
-  return (
-    <>  
-        <header className='headerTrailer'>
-            <h1>Trailer</h1>
-        </header>
-        <section className='scTrailer'>
-            {   
-                trailer ? (
-                    <>
-                        <Youtube videoId={trailer[0]?.key} opts={opts} />
-                    </>
-                ) : null
-            }
-        </section>
-        <Nav />
-    </>
-  )
+    trailer ? console.log(trailer[0]) : null;
+    detail ? console.log(detail) : null;
+
+    return (
+        <>
+            <header className='headerTrailer'>
+
+                <button id='trailerGoBack' onClick={goBack}><svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" viewBox="" fill="none">
+                    <path d="M4.15882 6.858H22.1258M7.85782 11.7156L3 6.85782L7.85782 2" stroke="black" strokeWidth="4" strokeLinecap="round" />
+                </svg></button>
+
+                <h1>Trailer of {detail?.original_title}</h1>
+            </header>
+            <section className='scTrailer'>
+                {
+                    trailer ? (
+                        <>
+                            <Youtube videoId={trailer[0]?.key} opts={opts} />
+                        </>
+                    ) : null
+                }
+            </section>
+            <Nav />
+        </>
+    )
 }
 
 export default Trailer

@@ -22,6 +22,10 @@ const Home = () => {
         navigate(`/detail/${id}`)
     }
 
+    const goToSeeAll = () => {
+        navigate('/')
+    }
+
     const [apiKey] = useState('api_key=1f06982c9b50c78835d9370e1b4a9b83')
 
     const [seeMostPopularMovies, setSeeMostPopularMovies] = useState([])
@@ -65,7 +69,7 @@ const Home = () => {
             <div>
                 <div className="movieHeader">
                     <h2>Trending movies</h2>
-                    <button></button>
+                    <button onClick={goToSeeAll}>See All</button>
                 </div>
                 <Carousel>
                     {getTop5Movies(seeMostPopularMovies).map((movie, index) => (

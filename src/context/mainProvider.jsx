@@ -84,11 +84,22 @@ const MainProvider = ({ children }) => {
     //     getFetch()
     // }, [])
 
+    // * save data into LocalStorage
+
+    const [storageMovie, setStorageMovie] = useState(() => {
+        const storedMovie = JSON.parse(localStorage.getItem('storageMovie'));
+        return storedMovie ? storedMovie : null;
+    })
+
+    useEffect(() => {
+        localStorage.setItem('storageMovie', JSON.stringify(storageMovie));
+    }, storageMovie)
+
 
     return (
         <>
             <mainContext.Provider
-                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer,backPath, setBackPath, genre, setGenre }}
+                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer,backPath, setBackPath, genre, setGenre, storageMovie, setStorageMovie }}
             >
                 {children}
             </mainContext.Provider>

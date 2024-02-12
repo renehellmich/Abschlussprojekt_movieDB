@@ -25,6 +25,20 @@ const MainProvider = ({ children }) => {
     //     setMovieID(1212073)
     // }
 
+    // useEffect(() => {
+    //     const apiFetch = async () => {
+    //         try {
+    //             const resp = await axios.get(`${apiLink.popular}&${apiKey}`);
+    //             setSeeMostPopularMovies(resp.data.results);
+    //             console.log(resp);
+    //         } catch (error) {
+    //             console.error('Error:', error);
+    //         }
+    //     };
+
+    //     apiFetch();
+    // }, [apiLink.popular]);
+
     useEffect(() => {
         movieID ? (
             setApiLink((prevState) => ({

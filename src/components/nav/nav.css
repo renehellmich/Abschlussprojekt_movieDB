@@ -1,5 +1,12 @@
 .navbar-nav {
     font-size: 30px;
-
+    display: flex;
+    gap: 4rem;
+   
+    
 }
 
+.nav-item {
+    display: flex;
+    align-items: center;
+}

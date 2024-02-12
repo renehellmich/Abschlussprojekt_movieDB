@@ -51,26 +51,40 @@ const Home = () => {
         return sortedMovies.slice(0, 5);
     };
 
-    // const Nav = () => {
+  
 
-    //     const navigate = useNavigate()
 
-    //      const goToHome = () => {
-    //          navigate('/home')
-    //      }
+    const showMoreMovies = () => {
+        if (searchInput == "") {
+            setSearchedOrFilteredMovies(genre)
+
+        }
+        else {
+
+            const sortedMovies = [...searchedOrFilteredMovies]?.filter((movie) => {
+                return movie?.genre_ids?.includes(27)
+            })
+            console.log("sortedMovies", sortedMovies);
+            setSearchedOrFilteredMovies(sortedMovies)
+        }
+    }
+
+    // hier show more movies end
+
+
 
     return (
         <>
             <SearchBar />
             <div>
                 <div className="movieHeader">
-                    <h2>Trending movies</h2>
-                    <button></button>
+                    <h2 onClick>Trending movies</h2>
+                    <button onClick={showMoreMovies}>show</button>
                 </div>
                 <Carousel>
                     {getTop5Movies(seeMostPopularMovies).map((movie, index) => (
                         <Carousel.Item key={index}
-                        onClick={() => goToDetails(movie.id)}>
+                            onClick={() => goToDetails(movie.id)}>
 
                             <img className="d-block w-100" src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title} />
                             <div className="darkShadow"></div>

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import axios from "axios"
 import SearchShowList from "../searchShowList/SearchShowList"
 import Genre from "../genre/Genre"
+import { Link } from "react-router-dom"
 
 const SearchBar = () => {
 
@@ -119,6 +120,21 @@ const SearchBar = () => {
     }
 
 
+    const showMoreMovies = () => {
+        if (searchInput == "") {
+            setSearchedOrFilteredMovies(genre)
+
+        }
+        else {
+
+            const sortedMovies = [...searchedOrFilteredMovies]?.filter((movie) => {
+                return movie?.genre_ids?.includes(27)
+            })
+            console.log("sortedMovies", sortedMovies);
+            setSearchedOrFilteredMovies(sortedMovies)
+        }
+    }
+
 
     return (
         <>
@@ -130,6 +146,8 @@ const SearchBar = () => {
                 <button onClick={filterNachAction}>Action</button>
                 <button onClick={filterNachComedy}>Comedy</button>
                 <button onClick={filterNachHorror}>Horror</button>
+                <button onClick={showMoreMovies}>test</button>
+
             </div>
             {/* show search results */}
             {
@@ -137,9 +155,11 @@ const SearchBar = () => {
                     (
                         searchedOrFilteredMovies?.map((movie, index) => {
                             return (
+
                                 <div className="movieCard" key={index}>
                                     < SearchShowList movie={movie} />
                                 </div>
+
                             )
                         })
                     )

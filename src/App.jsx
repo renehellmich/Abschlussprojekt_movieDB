@@ -6,6 +6,8 @@ import Detail from './pages/detail/Detail'
 import Home from './pages/home/Home'
 import Trailer from './pages/trailer/Trailer'
 
+import Search from './pages/search/Search'
+
 function App() {
 
 
@@ -16,6 +18,7 @@ function App() {
         <Route path='/detail/:id' element={<Detail />} />
         <Route path='/home' element={<Home />} />
         <Route path='/trailer' element={<Trailer />} />
+        <Route path='/search' element={<Search />} />
       </Routes>
     </>
   )

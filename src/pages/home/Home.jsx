@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import Genre from "../../components/genre/Genre";
-=======
-import { useContext, useState, useEffect } from "react";
->>>>>>> bwalya
 import Nav from "../../components/nav/Nav";
 import SearchBar from "../../components/searchBar/SearchBar";
 import { mainContext } from "../../context/mainProvider";
@@ -11,18 +7,20 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Carousel } from "react-bootstrap";
 import "./home.css"
 import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useContext } from 'react'
 
 
 const Home = () => {
-<<<<<<< HEAD
-    return (
-        <>
-            <SearchBar />
-            <h1>test</h1>
-            <Nav />
-=======
 
-    // const [seeMostPopularMovies, setSeeMostPopularMovies] = useContext(mainContext)
+    const { setMovieID } = useContext(mainContext)
+
+    const navigate = useNavigate()
+
+    const goToDetails = (id) => {
+        console.log(id);
+        setMovieID(id)
+        navigate(`/detail/${id}`)
+    }
 
     const [apiKey] = useState('api_key=1f06982c9b50c78835d9370e1b4a9b83')
 
@@ -56,45 +54,38 @@ const Home = () => {
     // const Nav = () => {
 
     //     const navigate = useNavigate()
-        
+
     //      const goToHome = () => {
     //          navigate('/home')
     //      }
 
-    return ( 
+    return (
         <>
-         <SearchBar />
+            <SearchBar />
             <div>
                 <div className="movieHeader">
-                <h2>Trending movies</h2>
-                <button></button>
+                    <h2>Trending movies</h2>
+                    <button></button>
                 </div>
                 <Carousel>
-                {getTop5Movies(seeMostPopularMovies).map((movie, index) => (
-                    <Carousel.Item key={index}>
-                        
-                        <img className="d-block w-100" src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title} />
-                        <div className="darkShadow"></div>
-                        <Carousel.Caption>
-                        <div className="movieCategorys">
-                        <h3 className="movieTitle">{movie.title}</h3>
-                        <p className="movieVoting">⭐️{movie.vote_average.toFixed(1)} / 10</p></div>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                ))}
+                    {getTop5Movies(seeMostPopularMovies).map((movie, index) => (
+                        <Carousel.Item key={index}
+                        onClick={() => goToDetails(movie.id)}>
+
+                            <img className="d-block w-100" src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title} />
+                            <div className="darkShadow"></div>
+                            <Carousel.Caption>
+                                <div className="movieCategorys">
+                                    <h3 className="movieTitle">{movie.title}</h3>
+                                    <p className="movieVoting">⭐️{movie.vote_average.toFixed(1)} / 10</p></div>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    ))}
                 </Carousel>
             </div>
-        <Nav />
->>>>>>> bwalya
+            <Nav />
         </>
     );
 }
 
-<<<<<<< HEAD
 export default Home;
-=======
-
- 
-export default Home;
-    
->>>>>>> bwalya

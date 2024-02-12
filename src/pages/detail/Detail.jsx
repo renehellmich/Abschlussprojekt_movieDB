@@ -1,31 +1,26 @@
-import axios from 'axios'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './detail.css'
-import { useParams } from 'react-router-dom' //diese zeile muss bleiben
-import { useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { mainContext } from '../../context/mainProvider'
+import Nav from '../../components/nav/Nav'
 
 const Detail = () => {
 
-
-
-    const { id } = useParams() //diese zeile muss bleiben
-    const{detail, setDetail} = useContext(mainContext)
+    const { id } = useParams()
+    const{detail, setDetail, backPath} = useContext(mainContext)
     const [seeMore, setSeeMore] = useState(true)
-    const [movieId, setMovieId] = useState(id) //diese zeile muss bleiben
 
+    const navigate = useNavigate()                                      //Navigations
+    const goBack = () => {navigate(`${backPath}`)}                      //-back   
+    const goToTrailer = () => {navigate('/trailer')}                    //-trialer
 
-    const navigate = useNavigate()                  //Navigations
-    const goBack = () => {navigate('/home')}        //-back     //!ergänzen zu backPath
-    const goToTrailer = () => {navigate('/trailer')}//-trialer
+    const imgUrl = `https://image.tmdb.org/t/p/w342${detail.poster_path}`//IMG URL
 
-    const imgUrl = `https://image.tmdb.org/t/p/w342${detail.poster_path}`
-    const ranking = (Math.ceil(detail.vote_average * 20) / 20).toFixed(1)   // ranking
+    const ranking = (Math.ceil(detail.vote_average * 20) / 20).toFixed(1)// ranking
+
     const overviewFull = detail.overview
-    let overview = detail.overview                                     //overview
-    if (detail.overview?.length > 150){
-        overview = overview.slice(0,150)}
-        // else{setSeeMore(false)}
+
+    const overview = detail.overview.slice(0,100)                       //overview
 
     const genres = []                                                   //genres
     detail?.genres?.map((e) => {
@@ -39,7 +34,23 @@ const Detail = () => {
         lanuages.push(e.english_name)
     })
 
-    let hours = `${Math.ceil(detail.runtime / 60)}h ${Math.ceil(detail.runtime % 60)}min`       //runtime
+    const prodComp = []                                                 //production Companies
+    detail?.production_companies?.map((e) =>{
+        if (prodComp.length > 0) { prodComp.push(", ") }
+        prodComp.push(e.name)
+    })
+
+    const prodCountry = []                                              //production Countries
+    detail?.production_countries?.map((e) =>{
+        if (prodCountry.length > 0) { prodCountry.push(", ") }
+        prodCountry.push(e.name)
+    })
+
+    let hours = `${Math.ceil(detail.runtime / 60)}h ${Math.ceil(detail.runtime % 60)}min`      //runtime
+
+    const formattedBudget = `${new Intl.NumberFormat('de-DE').format(detail.budget)}$`         //Budget
+
+    const formattedRevenue = `${new Intl.NumberFormat('de-DE').format(detail.revenue)}$`       //Revenue
 
     return (
         <div id='detail'>
@@ -49,7 +60,7 @@ const Detail = () => {
 </svg></button>
                 <div id='title'>
                     <p>Movie Details</p>
-                    <h1>{detail.original_title}</h1>
+                    <h1>{detail.title}</h1>
                 </div>
             </div>
             <div id="detailCard">
@@ -63,7 +74,47 @@ const Detail = () => {
                 </ul>
                 <div id="overview">
                     <h2>Overview</h2>
-                    {seeMore ? <p>{overview}<span onClick={() => setSeeMore(false)}>...see More</span></p> : <p>{overviewFull}</p>}
+                    {seeMore ? <p>{overview}<span onClick={() => setSeeMore(false)}>...see More</span></p> 
+                    : <div>
+                        <p>{overviewFull}</p>
+                        
+                        <div className="genre">
+                            <p>Original title</p>
+                            <p>{detail.original_title}</p>
+                        </div>
+                        
+                        {(prodComp.length>0)
+                        ?<div className="genre">
+                            <p>Production Companies</p>
+                            <p>{prodComp}</p>
+                        </div>
+                        :null}
+                        
+                        {(prodCountry.length>0)
+                        ?<div className="genre">
+                            <p>Porduction Countries</p>
+                            <p>{prodCountry}</p>
+                        </div>
+                        :null}
+                        
+                        {(detail.budget > 0)
+                        ?<div className="genre">
+                            <p>Budget</p>
+                            <p>{formattedBudget}</p>
+                        </div>
+                        :null}
+                        
+                        {(detail.revenue > 0)
+                        ?<div className="genre">
+                            <p>Revenue</p>
+                            <p>{formattedRevenue}</p>
+                        </div>
+                        :null}
+                        
+                    </div>
+                    
+                    
+                    }
                 </div>
                 <div className="genre">
                     <p>Genres</p>
@@ -77,6 +128,7 @@ const Detail = () => {
             <button id='trailerButton' onClick={() => goToTrailer()}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
   <path d="M13.558 5.90848C14.011 6.17266 14.3868 6.55096 14.648 7.00566C14.9092 7.46037 15.0467 7.9756 15.0467 8.49998C15.0467 9.02437 14.9092 9.5396 14.648 9.99431C14.3868 10.449 14.011 10.8273 13.558 11.0915L4.512 16.3685C4.05609 16.6345 3.53804 16.7756 3.01019 16.7774C2.48233 16.7791 1.96334 16.6416 1.50563 16.3787C1.04792 16.1158 0.667686 15.7367 0.403328 15.2798C0.13897 14.8229 -0.000154495 14.3043 1.90735e-06 13.7765V3.22248C2.09808e-05 2.69471 0.139275 2.17628 0.403704 1.71952C0.668133 1.26276 1.04838 0.883852 1.50606 0.62103C1.96374 0.358207 2.48266 0.220778 3.01044 0.222613C3.53821 0.224449 4.05616 0.365485 4.512 0.631484L13.558 5.90848Z" fill="white"/>
 </svg> Watch Trailer</button>
+        <Nav/>
         </div>
     )
 }

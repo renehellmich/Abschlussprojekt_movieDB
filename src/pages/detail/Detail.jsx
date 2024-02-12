@@ -20,7 +20,7 @@ const Detail = () => {
 
     const overviewFull = detail.overview
 
-    const overview = detail.overview.slice(0,100)                       //overview
+    const overview = detail?.overview?.slice(0,100)                       //overview
 
     const genres = []                                                   //genres
     detail?.genres?.map((e) => {

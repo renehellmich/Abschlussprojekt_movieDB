@@ -62,3 +62,21 @@ input {
     background-color: var(--color-red);
     color: white
 }
+
+
+.movieHeader h2 {
+    color: #000;
+    font-family: Poppins;
+    font-size: 1, 25rem;
+    font-weight: 700;
+
+}
+
+.movieHeader p {
+    color: #FC2121;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

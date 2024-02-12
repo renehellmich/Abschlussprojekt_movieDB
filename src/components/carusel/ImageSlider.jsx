@@ -1,18 +1,15 @@
-import Genre from "../../components/genre/Genre";
-import Nav from "../../components/nav/Nav";
-import SearchBar from "../../components/searchBar/SearchBar";
+import { Carousel } from "react-bootstrap";
 import { mainContext } from "../../context/mainProvider";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
-import { Carousel } from "react-bootstrap";
-import "./home.css"
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState, useContext } from 'react'
-import ImageSlider from "../../components/carusel/ImageSlider";
 
 
+const ImageSlider = () => {
 
-const Home = () => {
+
+    // const { searchInput, setSearchInput, searchedOrFilteredMovies, setSearchedOrFilteredMovies, genre, setGenre } = useContext(mainContext)
 
     const { setMovieID } = useContext(mainContext)
 
@@ -22,10 +19,6 @@ const Home = () => {
         console.log(id);
         setMovieID(id)
         navigate(`/detail/${id}`)
-    }
-
-    const goToSeeAll = () => {
-        navigate('/')
     }
 
     const [apiKey] = useState('api_key=1f06982c9b50c78835d9370e1b4a9b83')
@@ -52,43 +45,26 @@ const Home = () => {
     }, [apiLink.popular]);
 
 
+
     const getTop5Movies = (movies) => {
         const sortedMovies = movies.sort((a, b) => b.popularity - a.popularity);
         return sortedMovies.slice(0, 5);
     };
 
-    // stefan test
 
 
 
 
-
-
-
-
-
-    // hier show more movies end
 
 
 
     return (
         <>
             <div>
-
-
-            </div>
-            {/* <ImageSlider /> */}
-            <SearchBar />
-            {/* <div>
-                <div className="movieHeader">
-                    <h2 >Trending movies</h2>
-                    <button >show</button>
-                </div>
                 <Carousel>
                     {getTop5Movies(seeMostPopularMovies).map((movie, index) => (
                         <Carousel.Item key={index}
                             onClick={() => goToDetails(movie.id)}>
-
                             <img className="d-block w-100" src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title} />
                             <div className="darkShadow"></div>
                             <Carousel.Caption>
@@ -99,10 +75,9 @@ const Home = () => {
                         </Carousel.Item>
                     ))}
                 </Carousel>
-            </div> */}
-            <Nav />
+            </div>
         </>
     );
 }
 
-export default Home;
+export default ImageSlider;

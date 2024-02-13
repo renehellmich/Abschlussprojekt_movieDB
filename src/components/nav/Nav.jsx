@@ -14,7 +14,7 @@ const Nav = () => {
    
     const goToHome = () => {
         navigate('/home')
-        window.location.reload();
+        // window.location.reload();
     }
     const goToStorage = () => {
       navigate('/storage')

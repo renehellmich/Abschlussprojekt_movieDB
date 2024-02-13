@@ -29,6 +29,9 @@ const MainProvider = ({ children }) => {
 
     const movieSearch = `https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`
 
+    // toogle hides or shows the carousel or welcome text
+    const [showSlider, setShowSlider] = useState(true)
+
     // if (movieID != 1212073) {
     //     setMovieID(1212073)
     // }
@@ -128,7 +131,7 @@ const MainProvider = ({ children }) => {
     return (
         <>
             <mainContext.Provider
-                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer, backPath, setBackPath, genre, setGenre, storageMovie, setStorageMovie, searchedOrFilteredMovies, setSearchedOrFilteredMovies, searchInput, setSearchInput }}
+                value={{ apiKey, apiLink, movieID, setMovieID, detail, setDetail, trailer, setTrailer, backPath, setBackPath, genre, setGenre, storageMovie, setStorageMovie, searchedOrFilteredMovies, setSearchedOrFilteredMovies, searchInput, setSearchInput, showSlider, setShowSlider }}
             >
                 {children}
             </mainContext.Provider>

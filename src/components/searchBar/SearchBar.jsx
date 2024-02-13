@@ -12,7 +12,7 @@ import ImageSlider from "../carusel/ImageSlider"
 const SearchBar = () => {
 
     //  hier wollte ich das in mainProvider importieren aber funktiniert nicht gut
-    const { searchInput, setSearchInput, searchedOrFilteredMovies, setSearchedOrFilteredMovies, genre, setGenre } = useContext(mainContext)
+    const { searchInput, setSearchInput, searchedOrFilteredMovies, setSearchedOrFilteredMovies, genre, setGenre, showSlider, setShowSlider } = useContext(mainContext)
 
 
 
@@ -60,7 +60,7 @@ const SearchBar = () => {
 
 
 
-    // hier ist fetch für searchbar
+    /* // hier ist fetch für searchbar
     useEffect(() => {
         const getFetch = async () => {
             const result = await axios.get(`${movieSearch}&${apiKey}`)
@@ -81,7 +81,7 @@ const SearchBar = () => {
         }
         // nowfetch ? getFetch() : null
         getFetch()
-    }, [])
+    }, []) */
 
 
 
@@ -155,8 +155,7 @@ const SearchBar = () => {
         }
     }
 
-    // toogle hides or shows the carousel or welcome text
-    const [showSlider, setShowSlider] = useState(true)
+    
 
     const toogleSlider = () => {
         setShowSlider(!showSlider)

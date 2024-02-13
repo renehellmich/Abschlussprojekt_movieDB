@@ -30,7 +30,7 @@ const SearchShowList = ({ movie }) => {
 
 
         <div className="containerFoto" onClick={goToDetails}>
-            <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title}></img>
+            <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title} className="showListImg"></img>
         </div>
         <div className="containerInfo" >
             <p className="movieTitle" onClick={goToDetails}>

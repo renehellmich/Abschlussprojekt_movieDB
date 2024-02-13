@@ -58,13 +58,3 @@ p {
     text-align: center;
 }
 
-.buttonRed {
-    background: #E50914; 
-    color: #fff; 
-    padding: 1rem 2rem;
-    border-radius: 20px; 
-    font-size: 1rem;
-    font-weight: bold; 
-    transition: background 0.3s ease; 
-}
-

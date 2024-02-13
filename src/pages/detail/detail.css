@@ -108,11 +108,11 @@ ul {
     font-family: Poppins;
     font-weight: 300;
     font-size: 1.2rem;
-    background-color: var(--color-red);
-    color: white;
+    /* background-color: var(--color-red);
+    color: white; */
     border: none;
     border-radius: 1rem;
-    color: #FFF;
+    
 
 
 }
@@ -127,9 +127,4 @@ ul {
     background-color: #FBF8FF;
     color: #A4A3A3;
     cursor: pointer;
-}
-
-#trailerButton:hover {
-    background-color: #A4A3A3;
-    color: white
 }

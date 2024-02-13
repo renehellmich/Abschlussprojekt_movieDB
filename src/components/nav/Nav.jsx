@@ -28,10 +28,10 @@ const Nav = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <button className="nav-item nav-link active" onClick={goToHome}><HiHome /></button>
-            <a className="nav-item nav-link" href="#" onClick={goToStorage}><HiOutlineBookmark /></a>
-            <a className="nav-item nav-link" href="#"><HiInboxArrowDown /></a>
-            <a className="nav-item nav-link disabled" href="#"><VscAccount /></a>
+            <button className="nav-item nav-link" onClick={goToHome}><HiHome /></button>
+            <button className="nav-item nav-link" href="#" onClick={goToStorage}><HiOutlineBookmark /></button>
+            <button className="nav-item nav-link" href="#"><HiInboxArrowDown /></button>
+            <button className="nav-item nav-link" href="#"><VscAccount /></button>
           </div>
         </div>
       </nav>

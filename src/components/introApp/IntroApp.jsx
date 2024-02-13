@@ -21,7 +21,7 @@ const IntroApp = () => {
                     <div className='divIntroDescription'>
                         <h2>Enjoy Your Movie Watch Everywhere</h2>
                         <p>Stream unlimited movies and TV shows on your phone,tablet, laptop, and TV.</p>
-                        <button className='buttonRed'
+                        <button
                             onClick={goToHome}
                         >Get started</button>
                     </div>

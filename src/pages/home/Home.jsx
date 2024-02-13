@@ -94,7 +94,7 @@ const Home = () => {
                             <Carousel.Caption>
                                 <div className="movieCategorys">
                                     <h3 className="movieTitle">{movie.title}</h3>
-                                    <p className="movieVoting">⭐️{movie.vote_average.toFixed(1)} / 10</p></div>
+                                    <p className="movieVoting">⭐️ {movie.vote_average.toFixed(1)} / 10</p></div>
                             </Carousel.Caption>
                         </Carousel.Item>
                     ))}

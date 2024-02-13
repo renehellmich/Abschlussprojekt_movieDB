@@ -7,6 +7,7 @@
 #detail {
     display: flex;
     flex-direction: column;
+    padding-bottom: 2rem;
 }
 
 body {
@@ -41,6 +42,15 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    text-align: center;
+}
+
+.movieDetailTitle {
+    color: #000;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
 }
 
 h1 {
@@ -50,6 +60,15 @@ h1 {
 ul {
     display: flex;
     justify-content: space-evenly;
+    gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+    /* list-style: none; */
+}
+
+li:nth-child(1) {
+    list-style: none;
+    text-align: left;
 }
 
 #overview {
@@ -59,7 +78,16 @@ ul {
 
 }
 
-#overview p {
+.overviewText {
+    color: #000;
+    font-family: Poppins;
+    font-size: 1rem;
+    text-align: left;
+    font-weight: 500;
+    padding: 1rem;
+}
+
+/* #overview p {
     color: #000;
     font-family: Poppins;
     font-size: 16px;
@@ -67,7 +95,7 @@ ul {
     font-weight: 400;
     line-height: normal;
     padding: 1rem;
-}
+} */
 
 #overview p span {
     color: red
@@ -77,29 +105,34 @@ ul {
 .genre {
     display: flex;
     justify-content: space-between;
+    gap: 2rem;
     padding: .5rem 1em;
 }
 
 
 
 .genre p {
-    color: #000;
-
+    color: black;
     font-family: Poppins;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-size: 1rem;
+    font-weight: 300;
+
 }
 
-.genre :nth-child(1) {
-    color: #000;
+.genre p:first-child {
+    color: black;
     font-family: Poppins;
-    font-size: 16px;
-    font-style: normal;
+    font-size: 1rem;
     font-weight: 700;
-    line-height: normal;
+
 }
+
+.genre p:last-child {
+    text-align: right;
+}
+
+
+
 
 
 
@@ -112,7 +145,7 @@ ul {
     color: white; */
     border: none;
     border-radius: 1rem;
-    
+
 
 
 }

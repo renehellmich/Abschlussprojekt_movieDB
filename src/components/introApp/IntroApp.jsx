@@ -14,20 +14,20 @@ const IntroApp = () => {
 
     return (
         <>
-            <body className='bodyIntro'>
+            <main className='bodyIntro'>
                 <section className='scEyeCatcher'>
                     <img src={LandingImg} alt="" />
                 </section>
                 <section className='scIntroDescription'>
                     <div className='divIntroDescription'>
-                        <h2>Enjoy Your Movie Watch Everywhere</h2>
+                        <h2>Enjoy Your Movie, Watch Everywhere.</h2>
                         <p>Stream unlimited movies and TV shows on your phone,tablet, laptop, and TV.</p>
                         <button
                             onClick={goToHome}
-                        >Get started</button>
+                        >Get Started</button>
                     </div>
                 </section>
-            </body>
+            </main>
         </>
     )
 }

@@ -46,7 +46,7 @@ input {
 }
 
 
-.genreButtons button {
+/* .genreButtons button {
     font-family: Poppins;
     font-weight: 300;
     font-size: 1.2rem;
@@ -56,18 +56,29 @@ input {
     background-color: #FBF8FF;
     color: #A4A3A3;
     cursor: pointer;
-}
+} */
 
-.genreButtons button:hover {
+/* .genreButtons button:hover {
     background-color: var(--color-red);
     color: white
-}
+} */
 
+
+
+
+
+
+.movieHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+}
 
 .movieHeader h2 {
     color: #000;
     font-family: Poppins;
-    font-size: 1, 25rem;
+    font-size: 1.25rem;
     font-weight: 700;
 
 }
@@ -79,4 +90,19 @@ input {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+
+.movieHeader p:hover {
+    transform: scale(1);
+    color: #000;
+}
+
+.welkomeText {
+    color: #000;
+    font-family: Poppins;
+    font-size: 36px;
+
+    font-weight: 700;
+    padding-top: 1.5rem;
+
 }

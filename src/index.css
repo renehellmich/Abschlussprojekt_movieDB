@@ -36,26 +36,26 @@
  }
 
  main {
-  margin-bottom: 4rem;
-  padding-bottom: 1rem;
-}
+   margin-bottom: 4rem;
+   padding-bottom: 1rem;
+ }
 
-button {
-  font-family: Poppins;
-  font-weight: 300;
-  font-size: 1.2rem;
-  padding: .5rem 1rem;
-  border: none;
-  border-radius: 1rem;
-  background-color: #FBF8FF;
-  color: #A4A3A3;
-  cursor: pointer;
-}
+ button {
+   font-family: Poppins;
+   font-weight: 300;
+   font-size: 1.2rem;
+   padding: .5rem 1rem;
+   border: none;
+   border-radius: 1rem;
+   background-color: #d2d1d3;
+   color: black;
+   cursor: pointer;
+ }
 
-button:hover {
-  background-color: var(--color-red);
-  color: white
-}
+ button:hover {
+   background-color: var(--color-red);
+   color: white
+ }
 
  /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

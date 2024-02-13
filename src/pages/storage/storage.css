@@ -1,3 +1,11 @@
 .mainStorageMovies {
     padding: 1rem 0rem;
 }
+
+.deleteButtonContainer {
+    text-align: center;
+}
+
+.errorText {
+    padding: 1rem;
+}

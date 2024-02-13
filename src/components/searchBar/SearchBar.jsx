@@ -155,7 +155,7 @@ const SearchBar = () => {
         }
     }
 
-    
+
 
     const toogleSlider = () => {
         setShowSlider(!showSlider)
@@ -166,7 +166,7 @@ const SearchBar = () => {
     return (
         <main>
             {/* WELKOME TEXT show und hide */}
-            {showSlider && <h1>Welcome</h1>}
+            {showSlider && <h1 className="welkomeText">Welcome!</h1>}
 
             {/* search input  */}
             <form className="seachBar">

@@ -10,15 +10,15 @@ import { HiHome } from "react-icons/hi2";
 
 const Nav = () => {
 
-   const navigate = useNavigate()
-   
-    const goToHome = () => {
-        navigate('/home')
-        window.location.reload();
-    }
-    const goToStorage = () => {
-      navigate('/storage')
-    }
+  const navigate = useNavigate()
+
+  const goToHome = () => {
+    navigate('/home')
+    window.location.reload();
+  }
+  const goToStorage = () => {
+    navigate('/storage')
+  }
 
   return (
     <footer>

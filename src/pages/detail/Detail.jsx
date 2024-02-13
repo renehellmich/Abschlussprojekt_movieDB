@@ -61,7 +61,7 @@ const Detail = () => {
                             <path d="M4.15882 6.858H22.1258M7.85782 11.7156L3 6.85782L7.85782 2" stroke="black" strokeWidth="4" strokeLinecap="round" />
                         </svg></button>
                         <div id='title'>
-                            <p>Movie Details</p>
+                            <p className='movieDetailTitle'>Movie Details</p>
                             <h1>{detail.title}</h1>
                         </div>
                     </div>
@@ -76,39 +76,39 @@ const Detail = () => {
                         </ul>
                         <div id="overview">
                             <h2>Overview</h2>
-                            {seeMore ? <p>{overview}<span onClick={() => setSeeMore(false)}>...see More</span></p>
+                            {seeMore ? <p className='overviewText'>{overview}<span onClick={() => setSeeMore(false)}> ...see More</span></p>
                                 : <div>
-                                    <p>{overviewFull}</p>
+                                    <p className='overviewText'>{overviewFull}</p>
 
                                     <div className="genre">
-                                        <p>Original title</p>
+                                        <p>Original title:</p>
                                         <p>{detail.original_title}</p>
                                     </div>
 
                                     {(prodComp.length > 0)
                                         ? <div className="genre">
-                                            <p>Production Companies</p>
+                                            <p>Production Companies:</p>
                                             <p>{prodComp}</p>
                                         </div>
                                         : null}
 
                                     {(prodCountry.length > 0)
                                         ? <div className="genre">
-                                            <p>Porduction Countries</p>
+                                            <p>Porduction Countries:</p>
                                             <p>{prodCountry}</p>
                                         </div>
                                         : null}
 
                                     {(detail.budget > 0)
                                         ? <div className="genre">
-                                            <p>Budget</p>
+                                            <p>Budget:</p>
                                             <p>{formattedBudget}</p>
                                         </div>
                                         : null}
 
                                     {(detail.revenue > 0)
                                         ? <div className="genre">
-                                            <p>Revenue</p>
+                                            <p>Revenue:</p>
                                             <p>{formattedRevenue}</p>
                                         </div>
                                         : null}
@@ -118,13 +118,17 @@ const Detail = () => {
 
                             }
                         </div>
-                        <div className="genre">
-                            <p>Genres</p>
-                            <p>{[genres]}</p>
-                        </div>
-                        <div className="genre">
-                            <p>Lanuages</p>
-                            <p>{[lanuages]}</p>
+                        <div id="overview">
+                            <div>
+                                <div className="genre">
+                                    <p>Genres:</p>
+                                    <p>{[genres]}</p>
+                                </div>
+                                <div className="genre">
+                                    <p>Lanuages:</p>
+                                    <p>{[lanuages]}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <button id='trailerButton' onClick={() => goToTrailer()}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">

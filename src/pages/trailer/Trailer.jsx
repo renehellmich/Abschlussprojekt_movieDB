@@ -23,29 +23,33 @@ const Trailer = () => {
     const goBack = () => {
         navigate(-1)
     }
-
+    console.log(detail?.original_title);
     trailer ? console.log(trailer[0]) : null;
     detail ? console.log(detail) : null;
 
     return (
         <>
-            <header className='headerTrailer'>
+            <main>
+                <header className='headerTrailer'>
+                    <div>
+                        <button onClick={goBack}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" viewBox="" fill="none">
+                                <path d="M4.15882 6.858H22.1258M7.85782 11.7156L3 6.85782L7.85782 2" stroke="black" strokeWidth="4" strokeLinecap="round" />
+                            </svg>
+                        </button></div>
+                    <h1>Trailer of {detail?.original_title}</h1>
+                </header>
 
-                <button id='trailerGoBack' onClick={goBack}><svg xmlns="http://www.w3.org/2000/svg" width="25" height="14" viewBox="" fill="none">
-                    <path d="M4.15882 6.858H22.1258M7.85782 11.7156L3 6.85782L7.85782 2" stroke="black" strokeWidth="4" strokeLinecap="round" />
-                </svg></button>
-
-                <h1>Trailer of {detail?.original_title}</h1>
-            </header>
-            <section className='scTrailer'>
-                {
-                    trailer ? (
-                        <>
-                            <Youtube videoId={trailer[0]?.key} opts={opts} />
-                        </>
-                    ) : null
-                }
-            </section>
+                <section className='scTrailer'>
+                    {
+                        trailer ? (
+                            <>
+                                <Youtube videoId={trailer[0]?.key} opts={opts} />
+                            </>
+                        ) : null
+                    }
+                </section>
+            </main>
             <Nav />
         </>
     )

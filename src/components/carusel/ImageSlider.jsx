@@ -60,7 +60,7 @@ const ImageSlider = () => {
 
     return (
         <>
-            <div>
+            <div className="carouselContainer">
                 <Carousel>
                     {getTop5Movies(seeMostPopularMovies).map((movie, index) => (
                         <Carousel.Item key={index}

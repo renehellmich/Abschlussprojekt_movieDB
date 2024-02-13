@@ -58,7 +58,7 @@ p {
     text-align: center;
 }
 
-button {
+.buttonRed {
     background: #E50914; 
     color: #fff; 
     padding: 1rem 2rem;

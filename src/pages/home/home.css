@@ -43,11 +43,6 @@
     height: 70vh;
 }
 
-nav {
-   
-    margin-top: 8rem;
-}
-
 .movieHeader{
     display: flex;
     justify-content: space-between;

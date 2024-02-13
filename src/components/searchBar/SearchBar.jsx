@@ -164,7 +164,7 @@ const SearchBar = () => {
 
 
     return (
-        <>
+        <main>
             {/* WELKOME TEXT show und hide */}
             {showSlider && <h1>Welcome</h1>}
 
@@ -215,7 +215,7 @@ const SearchBar = () => {
                     )
             }
 
-        </>
+        </main>
     );
 }
 

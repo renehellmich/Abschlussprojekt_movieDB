@@ -69,7 +69,7 @@ const Home = () => {
             <div>
                 <div className="movieHeader">
                     <h2>Trending movies</h2>
-                    <button onClick={goToSeeAll}>See All</button>
+                    <p onClick={goToSeeAll} className="allMovies">See All</p>
                 </div>
                 <Carousel>
                     {getTop5Movies(seeMostPopularMovies).map((movie, index) => (
@@ -81,7 +81,7 @@ const Home = () => {
                             <Carousel.Caption>
                                 <div className="movieCategorys">
                                     <h3 className="movieTitle">{movie.title}</h3>
-                                    <p className="movieVoting">⭐️{movie.vote_average.toFixed(1)} / 10</p></div>
+                                    <p className="movieVoting">⭐️ {movie.vote_average.toFixed(1)} / 10</p></div>
                             </Carousel.Caption>
                         </Carousel.Item>
                     ))}

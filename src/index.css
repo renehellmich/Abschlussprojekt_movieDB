@@ -57,6 +57,13 @@
    color: white
  }
 
+ @media screen and (min-width: 1024px) {
+  main {
+    margin: 0 auto;
+    max-width: 1920px;
+  }
+ }
+
  /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

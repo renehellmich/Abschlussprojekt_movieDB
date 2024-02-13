@@ -71,3 +71,31 @@
 
     /* Schimbă culoarea liniei la hover */
 }
+
+@media screen and (min-width: 768px) {
+    .showListImg {
+        width: 140px
+    }
+
+    .movieCard {
+        align-items: start;
+    }
+
+    .containerInfo .movieTitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .showListImg {
+        width: 180px
+    }
+
+    .movieCard {
+        align-items: start;
+    }
+
+    .containerInfo .movieTitle {
+        font-size: 2rem;
+    }
+}

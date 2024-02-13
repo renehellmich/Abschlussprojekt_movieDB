@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './introApp.css'
+import LandingImg from '../../../src/assets/EyeCatcher.png'
 
 
 
@@ -15,7 +16,7 @@ const IntroApp = () => {
         <>
             <body className='bodyIntro'>
                 <section className='scEyeCatcher'>
-                    <img src="../src/assets/EyeCatcher.png" alt="" />
+                    <img src={LandingImg} alt="" />
                 </section>
                 <section className='scIntroDescription'>
                     <div className='divIntroDescription'>

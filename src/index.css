@@ -58,10 +58,10 @@
  }
 
  @media screen and (min-width: 1024px) {
-  main {
-    /* margin: 0 auto; */
-    max-width: 1920px; 
-  }
+   main {
+     /* margin: 0 auto; */
+     max-width: 1920px;
+   }
  }
 
  /* :root {

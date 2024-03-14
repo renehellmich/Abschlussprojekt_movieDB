@@ -18,8 +18,8 @@ const Detail = () => {
 
     const ranking = (Math.ceil(detail.vote_average * 20) / 20).toFixed(1)// ranking
 
-    const overviewFull = detail?.overview
-    console.log(detail)
+    const overviewFull = detail.overview
+
     const overview = detail?.overview?.slice(0,100)                       //overview
 
     const genres = []                                                   //genres

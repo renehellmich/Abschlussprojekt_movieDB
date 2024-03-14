@@ -12,15 +12,15 @@ const Detail = () => {
 
     const navigate = useNavigate()                                      //Navigations
     const goBack = () => {navigate(`${backPath}`)}                      //-back   
-    const goToTrailer = () => {navigate('/trailer')}                    //-trialer
+    const goToTrailer = () => {navigate('/trailer')}                    //-trailer
 
     const imgUrl = `https://image.tmdb.org/t/p/w342${detail.poster_path}`//IMG URL
 
     const ranking = (Math.ceil(detail.vote_average * 20) / 20).toFixed(1)// ranking
 
-    const overviewFull = detail.overview
-
-    const overview = detail.overview.slice(0,100)                       //overview
+    const overviewFull = detail?.overview
+    console.log(detail)
+    const overview = detail?.overview?.slice(0,100)                       //overview
 
     const genres = []                                                   //genres
     detail?.genres?.map((e) => {
@@ -77,7 +77,7 @@ const Detail = () => {
                     {seeMore ? <p>{overview}<span onClick={() => setSeeMore(false)}>...see More</span></p> 
                     : <div>
                         <p>{overviewFull}</p>
-                        
+
                         <div className="genre">
                             <p>Original title</p>
                             <p>{detail.original_title}</p>
